@@ -120,6 +120,12 @@
 }
 
 \RequirePackage{pgfplots}
+\usetikzlibrary{plotmarks}
+
+\pgfdeclareplotmark{gnuplot-1}
+{%
+  \pgfuseplotmark{+}
+}%
 
 % Based on x
 \pgfdeclareplotmark{gnuplot-2}
@@ -150,6 +156,36 @@
   \pgfuseplotmark{x}
 }%
 
+\pgfdeclareplotmark{gnuplot-4}
+{%
+  \pgfuseplotmark{square}
+}%
+
+\pgfdeclareplotmark{gnuplot-5}
+{%
+  \pgfuseplotmark{square*}
+}%
+
+\pgfdeclareplotmark{gnuplot-6}
+{%
+  \pgfuseplotmark{o}
+}%
+
+\pgfdeclareplotmark{gnuplot-7}
+{%
+  \pgfuseplotmark{*}
+}%
+
+\pgfdeclareplotmark{gnuplot-8}
+{%
+  \pgfuseplotmark{triangle}
+}%
+
+\pgfdeclareplotmark{gnuplot-9}
+{%
+  \pgfuseplotmark{triangle*}
+}%
+
 % Based on triangle
 \pgfdeclareplotmark{gnuplot-10}
 {%
@@ -158,6 +194,16 @@
   \pgfpathlineto{\pgfqpointpolar{150}{\pgfplotmarksize}}%
   \pgfpathclose
   \pgfusepathqstroke
+}%
+
+% Based on triangle*
+\pgfdeclareplotmark{gnuplot-11}
+{%
+  \pgfpathmoveto{\pgfqpoint{0pt}{-\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfqpointpolar{30}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfqpointpolar{150}{\pgfplotmarksize}}%
+  \pgfpathclose
+  \pgfusepathqfillstroke
 }%
 
 % Based on halfsquare*
@@ -170,6 +216,16 @@
   \pgfusepathqstroke
 }%
 
+% Based on halfsquare*
+\pgfdeclareplotmark{gnuplot-13}{%
+  \pgfpathmoveto{\pgfqpoint{\pgfplotmarksize}{0pt}}%
+  \pgfpathlineto{\pgfqpoint{0pt}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfqpoint{-\pgfplotmarksize}{0pt}}%
+  \pgfpathlineto{\pgfqpoint{0pt}{-\pgfplotmarksize}}%
+  \pgfpathclose
+  \pgfusepathqfillstroke
+}%
+
 % Based on pentagon
 \pgfdeclareplotmark{gnuplot-14}
 {%
@@ -180,4 +236,16 @@
   \pgfpathlineto{\pgfqpointpolar{-162}{\pgfplotmarksize}}%
   \pgfpathclose
   \pgfusepathqstroke
+}%
+
+% Based on pentagon*
+\pgfdeclareplotmark{gnuplot-15}
+{%
+  \pgfpathmoveto{\pgfqpoint{0pt}{-\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfqpointpolar{-18}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfqpointpolar{54}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfqpointpolar{-234}{\pgfplotmarksize}}%
+  \pgfpathlineto{\pgfqpointpolar{-162}{\pgfplotmarksize}}%
+  \pgfpathclose
+  \pgfusepathqfillstroke
 }%
