@@ -134,4 +134,62 @@
 \0{gnuplot-gray100}
 \end{multicols}
 
+\section*{Markers}
+
+% Copied from pgfplots documentation source
+
+\newenvironment{longdescription}[0]{%
+    \begin{list}{}{%
+        % \leftmargin=4.7cm
+        % \setlength{\labelwidth}{4.7cm}%
+        \leftmargin=3cm
+        \setlength{\labelwidth}{3cm}%
+        \renewcommand{\makelabel}[1]{\hfill\textbf{\texttt{##1}}}%
+    }%
+}{%
+    \end{list}%
+}%
+\def\showit#1{%
+    \tikz\draw [
+        gray,
+        thin,
+        mark options={fill=yellow!80!black,draw=black,scale=2},
+        x=0.8cm,y=0.3cm,
+        #1,
+    ] plot coordinates {(0,0) (1,1) (2,0) (3,1)};%
+}%
+\def\showitpgfplots#1{%
+\begin{tikzpicture}[baseline]
+    \begin{axis}[
+        anchor=north,
+        xticklabels=,
+        yticklabels=,
+        zticklabels=,
+        width=5cm,
+    ]
+        \addplot3 [
+            gray,
+            thin,
+            mark options={
+                scale=2,
+                fill=yellow!80!black,
+                draw=black,
+            },
+            #1,
+        ] coordinates {(0,0,0) (0.3,0.6,0.3) (2,0,0.1) (2.3,1,0.2)};
+    \end{axis}
+\end{tikzpicture}%
+}%
+\newcommand*{\showitem}[1]{\item[mark=#1] \showit{mark=#1}} % Simmo
+\begin{multicols}{2}
+\begin{longdescription}
+    \showitem{gnuplot-2}
+    \showitem{gnuplot-2*}
+    \showitem{gnuplot-3*}
+    \showitem{gnuplot-10}
+    \showitem{gnuplot-12}
+    \showitem{gnuplot-14}
+\end{longdescription}
+\end{multicols}
+
 \end{document}
